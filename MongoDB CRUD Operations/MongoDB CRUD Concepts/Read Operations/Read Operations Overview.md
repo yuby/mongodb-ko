@@ -1,15 +1,11 @@
 #Read Operations Overview
 
-Read operations, or queries, retrieve data stored in the database. In MongoDB, queries select documents from a single collection.
 읽기작업, 또는 쿼리는 저장된 데이터를 데이터베이스로 부터 검색하는 작업입니다. 몽고디비에서의 셀렉트 쿼리는 하나의 collection의 documents를 대상으로 동작을 합니다.
 
-Queries specify criteria, or conditions, that identify the documents that MongoDB returns to the clients. A query may include a projection that specifies the fields from the matching documents to return. The projection limits the amount of data that MongoDB returns to the client over the network.
 쿼리는 기준과 저건을 명시하여 documents를 구분짓고 몽고디비는 그 결과를 클라이언트에 전달합니다. 쿼리는 매칭된  documents의 특정필드를 전달하기 위한 projection을 포함하고 있을 수 있습니다. projection은 몽고디비로부터 잔달되는 데이터의 양에 따라 제한이 될수도 있습니다.
 
 
 ##Query Interface
-
-For query operations, MongoDB provides a db.collection.find() method. The method accepts both the query criteria and projections and returns a cursor to the matching documents. You can optionally modify the query to impose limits, skips, and sort orders.
 
 쿼리작업을 위해 몽고디비는 [db.collection.find()](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) 메서드를 제공합니다. 이 메서드는 결과를 위한 기준과  projections와 일치하는 documents의 [cursor](http://docs.mongodb.org/manual/core/cursors/)를 정의 할 수있습니다.
 선택적으로 전달되는 결과의 limits, skips, sort 를 추가 할 수 있습니다.
@@ -30,7 +26,7 @@ db.users.find( { age: { $gt: 18 } }, { name: 1, address: 1 } ).limit(5)
 이 쿼리는 users collection에서 18세 이상의 정보를 불러오는 쿼리입니다. '더 큰' 이라는 조건이 명시되어 쿼리의 셀렉트 작업이 수행됩니다. 쿼리는 최대 5개의 일치하는 조건의 결과를 리턴합니다. 그리고 오직 _id, name, address  정보만을 전달합니다.
 [Projections](http://docs.mongodb.org/manual/core/read-operations-introduction/#projections) 에 대한 상세정보를 확인하세요.
 
-###SEE:
+#####SEE:
 [SQL 을 몽고디비와 비교한 표입니다.](http://docs.mongodb.org/manual/reference/sql-comparison/)
 
 
@@ -77,24 +73,34 @@ _id 필드의 경우에는 필드를 제외할때 다른 필드와 방식이 다
 다이어그램에서는 users collection에 select 작업을 진행합니다. 조건과 일치하는 documents를 가지고 projection에 특정 필드 이름을 더해 결과를 리턴합니다.
 
 
-Projection Examples
-Exclude One Field From a Result Set
+###Projection Examples
+
+####Exclude One Field From a Result Set
+'''
 db.records.find( { "user_id": { $lt: 42 } }, { "history": 0 } )
-This query selects documents in the records collection that match the condition { "user_id": { $lt: 42 } }, and uses the projection { "history": 0 } to exclude the history field from the documents in the result set.
+'''
+이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "history": 0 }를 통해서 실제로 결과로 전달되는 데이터 정보를 세팅합니다.
 
-Return Two fields and the _id Field
+
+####Return Two fields and the _id Field
+'''
 db.records.find( { "user_id": { $lt: 42 } }, { "name": 1, "email": 1 } )
-This query selects documents in the records collection that match the query { "user_id": { $lt: 42 } } and uses the projection { "name": 1, "email": 1 } to return just the _id field (implicitly included), name field, and the email field in the documents in the result set.
+'''
+이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "name": 1, "email": 1 }를 통해서 _id필드와 name, email필드의 정보를 리턴합니다.
 
-Return Two Fields and Exclude _id
+####Return Two Fields and Exclude _id
+'''
 db.records.find( { "user_id": { $lt: 42} }, { "_id": 0, "name": 1 , "email": 1 } )
-This query selects documents in the records collection that match the query { "user_id": { $lt: 42} }, and only returns the name and email fields in the documents in the result set.
+'''
+이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "name": 1, "email": 1 }를 통해서 _id필드를 제외하고  name, email필드의 정보를 리턴합니다.
 
-SEE
-Limit Fields to Return from a Query for more examples of queries with projection statements.
-Projection Behavior
-MongoDB projections have the following properties:
 
-By default, the _id field is included in the results. To suppress the _id field from the result set, specify _id: 0 in the projection document.
-For fields that contain arrays, MongoDB provides the following projection operators: $elemMatch, $slice, and $.
-For related projection functionality in the aggregation framework pipeline, use the $project pipeline stage.
+#####SEE
+[Limit Fields to Return from a Query](http://docs.mongodb.org/manual/tutorial/project-fields-from-query-results/) projection을 통한 제한된 리턴의 더 많은 예를 이곳을 통해 확인하세요.
+
+####Projection Behavior
+몽고디비 projection의 특징은 아래와 같습니다.
+
+- 기본으로 _id 필드는 결과에 포함이 되어있습니다. _id필드를 제거하고 싶은 경우에는 _id:0 을 통해 제거해야합니다.
+- 배열로 필드를 지정하는 경우, 몽고디비는 [$elemMatch](http://docs.mongodb.org/manual/reference/operator/projection/elemMatch/#proj._S_elemMatch), [$slice](http://docs.mongodb.org/manual/reference/operator/projection/elemMatch/#proj._S_elemMatch), and [$](http://docs.mongodb.org/manual/reference/operator/projection/positional/#proj._S_) 같은 연산자들을 통해서 변환할수 있습니다.
+- projection의 [aggregation](http://docs.mongodb.org/manual/core/aggregation/) 프레임 워크 파이프라인에서의 기능은 [$project](http://docs.mongodb.org/manual/reference/operator/aggregation/project/#pipe._S_project)를 파이프라인 단계에세 사용하면 됩니다.
