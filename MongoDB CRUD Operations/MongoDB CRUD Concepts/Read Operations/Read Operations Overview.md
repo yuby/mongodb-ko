@@ -19,9 +19,9 @@
 [The components of a SQL SELECT statement.](http://docs.mongodb.org/manual/_images/crud-annotated-sql-select.png)
 
 EXAMPLE
-'''
+```
 db.users.find( { age: { $gt: 18 } }, { name: 1, address: 1 } ).limit(5)
-'''
+```
 
 이 쿼리는 users collection에서 18세 이상의 정보를 불러오는 쿼리입니다. '더 큰' 이라는 조건이 명시되어 쿼리의 셀렉트 작업이 수행됩니다. 쿼리는 최대 5개의 일치하는 조건의 결과를 리턴합니다. 그리고 오직 _id, name, address  정보만을 전달합니다.
 [Projections](http://docs.mongodb.org/manual/core/read-operations-introduction/#projections) 에 대한 상세정보를 확인하세요.
@@ -76,22 +76,22 @@ _id 필드의 경우에는 필드를 제외할때 다른 필드와 방식이 다
 ###Projection Examples
 
 ####Exclude One Field From a Result Set
-'''
+```
 db.records.find( { "user_id": { $lt: 42 } }, { "history": 0 } )
-'''
+```
 이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "history": 0 }를 통해서 실제로 결과로 전달되는 데이터 정보를 세팅합니다.
 
 
 ####Return Two fields and the _id Field
-'''
+```
 db.records.find( { "user_id": { $lt: 42 } }, { "name": 1, "email": 1 } )
-'''
+```
 이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "name": 1, "email": 1 }를 통해서 _id필드와 name, email필드의 정보를 리턴합니다.
 
 ####Return Two Fields and Exclude _id
-'''
+```
 db.records.find( { "user_id": { $lt: 42} }, { "_id": 0, "name": 1 , "email": 1 } )
-'''
+```
 이 쿼리는  { "user_id": { $lt: 42 } } 이 조건과 일치하는 documents를 collection으로 부터 리턴받습니다. 그리고 projection인 { "name": 1, "email": 1 }를 통해서 _id필드를 제외하고  name, email필드의 정보를 리턴합니다.
 
 

@@ -27,7 +27,6 @@ In the following diagram, the query process specifies a query criteria and a sor
 
 
 ###Data Modification
-Data modification refers to operations that create, update, or delete data. In MongoDB, these operations modify the data of a single collection. For the update and delete operations, you can specify the criteria to select the documents to update or remove.
 데이터를 수정하는 작업은 생성, 수정, 삭제로 구분할수 있습니다. 몽고디비는 이러한 데이터의 수정 동작을 하나의 collection을 대상으로만 진행을 합니다. 수정과 삭제의 작업시에는 여러분은 특정 기준을 명시하여 documents를 선택하여 수정과 삭제의 작업을 진행하면 됩니다.
 
 아래의 다이어그램은 uses collection에 새로운 document를 생성하는 작업을 나타냈습니다.
