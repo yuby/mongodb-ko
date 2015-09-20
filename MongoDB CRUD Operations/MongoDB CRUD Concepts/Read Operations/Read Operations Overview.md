@@ -1,3 +1,5 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
 #Read Operations Overview
 
 읽기작업, 또는 쿼리는 저장된 데이터를 데이터베이스로 부터 검색하는 작업입니다. 몽고디비에서의 셀렉트 쿼리는 하나의 collection의 documents를 대상으로 동작을 합니다.
@@ -104,3 +106,6 @@ db.records.find( { "user_id": { $lt: 42} }, { "_id": 0, "name": 1 , "email": 1 }
 - 기본으로 _id 필드는 결과에 포함이 되어있습니다. _id필드를 제거하고 싶은 경우에는 _id:0 을 통해 제거해야합니다.
 - 배열로 필드를 지정하는 경우, 몽고디비는 [$elemMatch](http://docs.mongodb.org/manual/reference/operator/projection/elemMatch/#proj._S_elemMatch), [$slice](http://docs.mongodb.org/manual/reference/operator/projection/elemMatch/#proj._S_elemMatch), and [$](http://docs.mongodb.org/manual/reference/operator/projection/positional/#proj._S_) 같은 연산자들을 통해서 변환할수 있습니다.
 - projection의 [aggregation](http://docs.mongodb.org/manual/core/aggregation/) 프레임 워크 파이프라인에서의 기능은 [$project](http://docs.mongodb.org/manual/reference/operator/aggregation/project/#pipe._S_project)를 파이프라인 단계에세 사용하면 됩니다.
+
+
+[목록](https://github.com/yuby/mongodb-ko)

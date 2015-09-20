@@ -1,3 +1,6 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
 #MongoDB CRUD Introduction
 
 몽고디비는 데이터를 JSON같이 필드와 값으로 이뤄진 형태인 documents형식으로 저장을 합니다.  Documents는 키와 값으로 아뤄진 구조인데 이는 dictionaries, hashes, maps, and associative arrays 같은 우리에게 익숙한 구조입니다.
@@ -49,3 +52,6 @@ In the following diagram, the query process specifies a query criteria and a sor
 
 ###Aggregation
 기본쿼리에 추가적으로 데이터를 추출할수 있는 기능을 몽고디비는 제공하고 있습니다. 예를들면 몽고디비는 쿼리와 일치하는 documents의 갯수를 전달할수 있고, 각 필드에 구분이 되는 값들의 갯수를 리턴하거나, 작업중인 collection의 documents에 각 단계별로 데이터를 다룰 수있는 pipeline 방식의 기능을 제공하고, map-reduce 작업도 가능하게 합니다.
+
+
+[목록](https://github.com/yuby/mongodb-ko)
