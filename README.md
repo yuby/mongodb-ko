@@ -9,6 +9,6 @@
     - Read Operations
         - [Read Operations Overview](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Read%20Operations%20Overview.md)
         - [Cursors](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Cursors.md)
-        - Query Optimization
+        - [Query Optimization](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Query%20Optimization.md)
         - Query Plans
         - Distributed Queries
