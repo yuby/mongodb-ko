@@ -54,8 +54,12 @@ New in version 2.6.
 New in version 2.6.
 
 인덱스 필터는 어떤 인덱스가 최적의 [형태의 쿼리](http://docs.mongodb.org/manual/reference/glossary/#term-query-shape)를 가지게 하는지를 정의합니다. 쿼리의 형태는 쿼리와 정렬, 특정 필드에 대한 projection으로 구성이 되어있습니다. 만약에 인덱스 필터가 주어진 쿼리 형태에 존재하는 경우, 최적화기는 오직 필터에 지정된 인덱스만을 고려합니다.
+
 인덱스필터가 쿼리 형태로 존재한다면 몽고디비는 [hint()](http://docs.mongodb.org/manual/reference/method/cursor.hint/#cursor.hint)메서드를 무시합니다. 몽고디비가 쿼리형태의 인덱스 필터를 적용하는지는 [indexFilterSet](http://docs.mongodb.org/manual/reference/explain-results/#explain.queryPlanner.indexFilterSet) 필드나  [db.collection.explain()](http://docs.mongodb.org/manual/reference/method/db.collection.explain/#db.collection.explain) 또는 [cursor.explain()](http://docs.mongodb.org/manual/reference/method/cursor.explain/#cursor.explain) 메서드를 확인하면 됩니다.
+
 인덱스필터는 오직 최적화기의 평가를 받은 인덱스에 대해서만 영향을 줄것이고 최적화기는 여전히 collection을 선택하여 주어진 선택된 쿼리를 지속적으로 검사를 할것입니다.
+
 인덱스 필터는 서버가 진행하는 동안에만 존재합니다. 그리고 종료가 된 이휴에는 지속되지 않습니다. 몽고디비는 수동으로 해당 필터를 제거하는 명령을 제공합니다.
+
 인덱스 필터는 최적화기에 의해 예상된 동작뿐만아니라 [hint()](http://docs.mongodb.org/manual/reference/method/cursor.hint/#cursor.hint) 메서드를 오버라이드 하기 때문에 삼가면서 인덱스 필터를 사용합니다.
 [planCacheListFilters](http://docs.mongodb.org/manual/reference/command/planCacheListFilters/#dbcmd.planCacheListFilters), [planCacheClearFilters](http://docs.mongodb.org/manual/reference/command/planCacheClearFilters/#dbcmd.planCacheClearFilters), 그리고 [planCacheSetFilter](http://docs.mongodb.org/manual/reference/command/planCacheSetFilter/#dbcmd.planCacheSetFilter) 에 대한 정보를 확인하세요.

@@ -11,4 +11,4 @@
         - [Cursors](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Cursors.md)
         - [Query Optimization](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Query%20Optimization.md)
         - [Query Plans](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Query%20Plans.md)
-        - Distributed Queries
+        - [Distributed Queries](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Distributed%20Queries.md)
