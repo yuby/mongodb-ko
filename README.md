@@ -14,7 +14,7 @@
         - [Distributed Queries](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Read%20Operations/Distributed%20Queries.md)
     - Write Operations
         - [Write Operations Overview](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Write%20Operations/Write%20Operations%20Overview.md)
-        - Write Concerns
+        - [Write Concerns](https://github.com/yuby/mongodb-ko/blob/master/MongoDB%20CRUD%20Operations/MongoDB%20CRUD%20Concepts/Write%20Operations/Write%20Concerns.md)
         - Atomicity and Transaction
         - Distributed Write Operations
         - Write Operations Performance
