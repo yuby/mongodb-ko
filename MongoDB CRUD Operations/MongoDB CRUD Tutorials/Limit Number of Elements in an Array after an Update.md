@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Limit Number of Elements in an Array after an Update
 
 New in version 2.4.
@@ -58,7 +62,11 @@ db.students.update(
 ```
 
 SEE ALSO
-[$push](http://docs.mongodb.org/manual/reference/operator/update/push/#up._S_push) 
-[$each](http://docs.mongodb.org/manual/reference/operator/update/each/#up._S_each) 
+[$push](http://docs.mongodb.org/manual/reference/operator/update/push/#up._S_push)
+[$each](http://docs.mongodb.org/manual/reference/operator/update/each/#up._S_each)
 [$sort](http://docs.mongodb.org/manual/reference/operator/update/sort/#up._S_sort)
 [$slice](http://docs.mongodb.org/manual/reference/operator/update/slice/#up._S_slice).
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

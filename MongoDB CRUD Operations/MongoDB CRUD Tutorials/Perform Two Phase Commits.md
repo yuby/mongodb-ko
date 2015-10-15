@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Perform Two Phase Commits
 
 
@@ -8,7 +12,7 @@
 
 ##Background
 
-몽도디비에서는 하나의 [document](http://docs.mongodb.org/manual/reference/glossary/#term-document)를 대상으로 하는 동작은 항상 원자성이 보장이 됩니다. 하지만 다수의 documents를 대상으로 하는 작업이라면(multi-document transactions) 원자성이 보장이 되지 않습니다. 
+몽도디비에서는 하나의 [document](http://docs.mongodb.org/manual/reference/glossary/#term-document)를 대상으로 하는 동작은 항상 원자성이 보장이 됩니다. 하지만 다수의 documents를 대상으로 하는 작업이라면(multi-document transactions) 원자성이 보장이 되지 않습니다.
 document는 매우 복잡하고 여러 "중첩(nested)" documents를 포함 할 수 있기 때문에, 단일 document의 원자성은 반드시 다양한 실질적인 경우들을 지원해야합니다.
 
 이처럼 단일 document에 대한 원자성을 보장함에도 불구하고 여러 documents 트랜잭션이 필요한 경우가 있습니다. 순차적인 작업에 트랜젝션이 실행이 되면 몇가지 이슈가 발생합니다.
@@ -45,7 +49,7 @@ db.accounts.insert(
 
 ###Initialize Transfer Record
 각각의 이체 작업은 transactions collection에 이체정보를 저장합니다. document는 다음과 같은 필드의 정보가 필요합니다.
-- source 와 destination 필드는 각가의 계좌정보를 담고있는 documents의 _id정보를 각각 참조하고 있습니다. 
+- source 와 destination 필드는 각가의 계좌정보를 담고있는 documents의 _id정보를 각각 참조하고 있습니다.
 - value 필드는 source와 destination계좌에 영향을 미칠 결국 이체를 하게 될 금액정보를 담습니다.
 - state 필드는 현재 이체 상태에 대한 정보입니다. state 필드는  initial, pending, applied, done, canceling, canceled 를 값으로 가지고 있습니다.
 - lastModified 필드는 가장 최근에 수정된 시간의 정보를 가지고 있습니다.
@@ -129,7 +133,7 @@ db.transactions.update(
 #### 5 Update both accounts’ list of pending transactions.
 작업이 완료가 되었다면 진행했던 작업의 정보를 두 계좌의 pendingTransactions 으로 부터 제거를 해야합니다.
 
-보내는 사람의 정보를 수정하고 
+보내는 사람의 정보를 수정하고
 ```
 db.accounts.update(
    { _id: t.source, pendingTransactions: t._id },
@@ -254,7 +258,7 @@ db.transactions.update(
    }
 )
 ```
-작업이 성공적으로 수정이 이뤄졌다면 [WriteResult()](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult)  객체의  [nMatched](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult.nMatched) 와 [nModified](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult.nModified)가 1이 됩니다. 
+작업이 성공적으로 수정이 이뤄졌다면 [WriteResult()](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult)  객체의  [nMatched](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult.nMatched) 와 [nModified](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult.nModified)가 1이 됩니다.
 
 ##Multiple Applications
 
@@ -297,6 +301,11 @@ db.transactions.find(
 
 위의 예제의 경우에는 매우 간략하게 과정을 설명했습니다. 예를들면 모든 계좌에 대한 rollback이 가능하다는 가정과 잔고가 마이너스 값을 가질수 있게 처리가 되어있습니다.
 
-하지만 실제 제품에는 조금 더 복잡할 것입니다. 보통 계좌의 경우에는 현재 잔고(balance, pending credits, and pending debits) 등 더 많은 정보가 필요합니다. 
+하지만 실제 제품에는 조금 더 복잡할 것입니다. 보통 계좌의 경우에는 현재 잔고(balance, pending credits, and pending debits) 등 더 많은 정보가 필요합니다.
 
 모든 이체에  적절한 레벨의 [write concern](http://docs.mongodb.org/manual/core/write-concern/)을 함께 사용한다면 훨씬 안정작인 작업의 결과를 보장할수 있습니다.
+
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

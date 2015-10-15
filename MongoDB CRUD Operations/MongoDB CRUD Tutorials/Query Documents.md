@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Query Documents
 
 몽고디비에서 [db.collection.find()](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) 메서드는 collection으로 부터 documents를 검색할수 있습니다. [db.collection.find()](http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find) 메서드는 검색된 documents의 [cursor](http://docs.mongodb.org/manual/core/cursors/)를 리턴합니다.
@@ -120,7 +124,7 @@ db.inventory.find( { 'producer.company': 'ABC123' } )
 
 ##Arrays
 
-필드가 배열을 값으로 가질때 쿼리가 배열의 특정 값과 일치한다면 해당 document를 추출할수 있습니다. 그리고 만약에 배열에 내부 documents를 가진다면 [dot](http://docs.mongodb.org/manual/reference/glossary/#term-dot-notation) 을 통해 세부 필드에 값과 일치하는 documents를 추출해 낼수 있습니다.  
+필드가 배열을 값으로 가질때 쿼리가 배열의 특정 값과 일치한다면 해당 document를 추출할수 있습니다. 그리고 만약에 배열에 내부 documents를 가진다면 [dot](http://docs.mongodb.org/manual/reference/glossary/#term-dot-notation) 을 통해 세부 필드에 값과 일치하는 documents를 추출해 낼수 있습니다.
 
 만약 [$elemMatch](http://docs.mongodb.org/manual/reference/operator/query/elemMatch/#op._S_elemMatch)를 통해 다중 조건을 정의한다면, 배열은 최소 모든 조건중에 하나라도 일치하는 것이 있어야 합니다. 더 자세한 정보는 S[ingle Element Satisfies the Criteria](http://docs.mongodb.org/manual/tutorial/query-documents/#single-element-satisfies-criteria)에서 확인하시기 바랍니다.
 
@@ -135,7 +139,7 @@ inventory collection에  다음과 같이 데이터를 가지고 있다고 가�
 ```
 
 ###Exact Match on an Array
-쿼리 document { <field>: <value> }의 <value>를 사용해서 배열에서 일치하는 요소를 찾을수 있습니다. 일치하는 요소를 찾기 위해서는 배열을 값과 비교의 대상이 배열의 순서까지 정확하게 일치해야 합니다. 
+쿼리 document { <field>: <value> }의 <value>를 사용해서 배열에서 일치하는 요소를 찾을수 있습니다. 일치하는 요소를 찾기 위해서는 배열을 값과 비교의 대상이 배열의 순서까지 정확하게 일치해야 합니다.
 To specify equality match on an array, use the query document { <field>: <value> } where <value> is the array to match. Equality matches on the array require that the array field match exactly the specified <value>, including the element order.
 
 다음 쿼리 예제는 모든 documents에서 정확하게 5,8,9 세개의 엘리먼트가 일치하는 경우를 찾습니다.
@@ -357,3 +361,8 @@ db.inventory.find(
 
 SEE ALSO
 [Limit Fields to Return from a Query](http://docs.mongodb.org/manual/tutorial/project-fields-from-query-results/)
+
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

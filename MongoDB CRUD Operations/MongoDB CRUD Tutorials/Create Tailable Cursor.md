@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Create Tailable Cursor
 
 ##Overview
@@ -8,7 +12,7 @@ Tailable Cursor를 사용하는 capped collections에서는 대량의 쓰기 작
 
 >NOTE
 만약에 쿼리가 엔덱스 필드를 사용하고 있다면 tailable cursors를 사용하지 마세요. 대신에 보통 cursor를 사용하세요. 지속적으로 쿼리를 통해 리턴되는 인덱싱이 매겨진 마지막  필드의 값을 기억합니다. 새롭게 추가된 documents를 검색하려면  인덱스가 매겨진 마지막 필드의 값을 찾아 이를 쿼리의 조건으로 추가를 합니다. 아래의 예를 보시겠습니다.
-``` 
+```
 db.<collection>.find( { indexedField: { $gt: <lastvalue> } } )
 ```
 
@@ -23,3 +27,6 @@ db.<collection>.find( { indexedField: { $gt: <lastvalue> } } )
 driver documentation 에서 드라이버의 자세한 메서드를 확인하세요.
 
 ##C++ Example (내용 제외)
+
+
+[목록](https://github.com/yuby/mongodb-ko)

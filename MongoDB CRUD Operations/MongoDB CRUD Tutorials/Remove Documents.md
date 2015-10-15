@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Remove Documents
 
 [db.collection.remove()](http://docs.mongodb.org/manual/reference/method/db.collection.remove/#db.collection.remove)메서드는 collection으로 부터 documents를 삭제합니다. 우리는 collection의 모든 documents를 제거할수 있고 조건에 일치하는 documents만을 골라 제거하는것이 가능합니다. 또는 document하나만 제거 하는 것도 가능합니다.
@@ -37,3 +41,8 @@ db.inventory.remove( { type : "food" } )
 db.inventory.remove( { type : "food" }, 1 )
 ```
 [findAndModify()](http://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/#findandmodify-wrapper-sorted-remove)메서드를 사용해서 documents에 순서를 적용해서 삭제하는 것도 가능합니다.
+
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

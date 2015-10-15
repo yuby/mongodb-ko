@@ -1,3 +1,6 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
 #Analyze Query Performance
 
 [cursor.explain("executionStats")](https://docs.mongodb.org/manual/reference/method/cursor.explain/#cursor.explain) 와 [db.collection.explain("executionStats")](https://docs.mongodb.org/manual/reference/method/db.collection.explain/#db.collection.explain) 메서드는 쿼리 성능의 통계정보를 제공해 줍니다. 이는 인덱스를 어떤식으로 사용할것인지를 측정하는데 매우 유용합니다.
@@ -226,3 +229,7 @@ db.inventory.find(
 몽고디비는 2개의 인덱스 키를 스캔하고 2개의 일치하는 documents를 리턴합니다.
 
 위의 예제는 type, quantity 순서의 복합인덱스가 quantity,type 순서의 복합인덱스 보다 훨씬 효과적으로 나타납니다.
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

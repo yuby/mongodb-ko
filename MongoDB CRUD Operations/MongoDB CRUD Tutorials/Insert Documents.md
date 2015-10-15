@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Insert Documents
 
 몽고디비에서 [db.collection.insert()](http://docs.mongodb.org/manual/reference/method/db.collection.insert/#db.collection.insert)를 사용해서 새로운 documents를 collection에 추가합니다.
@@ -20,8 +24,8 @@ db.inventory.insert(
    }
 )
 ```
- 
-이 작업은 [WriteResult](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult) 객체와 작업의 상태를 함께 리턴합니다. 성공적으로 document를 생성하였다면 다음 객체를 리턴합니다. 
+
+이 작업은 [WriteResult](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult) 객체와 작업의 상태를 함께 리턴합니다. 성공적으로 document를 생성하였다면 다음 객체를 리턴합니다.
 
 ```
 WriteResult({ "nInserted" : 1 })
@@ -162,3 +166,7 @@ BulkWriteResult({
 [db.collection.insert()](http://docs.mongodb.org/manual/reference/method/db.collection.insert/#db.collection.insert)에 대한 더 많은 예를 확인하세요.
 
 [db.collection.update()](http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update) , [db.collection.findAndModify()](http://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/#db.collection.findAndModify), 그리고  [db.collection.save()](http://docs.mongodb.org/manual/reference/method/db.collection.save/#db.collection.save) 메서드도 새로운 documents를 생성하는 메서드입니다. 각각의 페이지를 확인해서 더 많은 예제와 정보를 확인하세요.
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

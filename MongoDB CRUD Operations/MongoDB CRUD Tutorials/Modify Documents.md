@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Modify Documents
 
 몽고디비는 [update()](http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update)메서드를 제공하여 collection의 documents를 수정하는 기능을 제공합니다. 메서드는 파라메터를 받습니다.
@@ -32,7 +36,7 @@ db.inventory.update(
     }
 )
 ```
-수정작업은 [WriteResult](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult) 에 작업의 상태를 담아 리턴합니다. 성공적으로 작업이 마쳤다면 
+수정작업은 [WriteResult](http://docs.mongodb.org/manual/reference/method/WriteResult/#WriteResult) 에 작업의 상태를 담아 리턴합니다. 성공적으로 작업이 마쳤다면
 
 ```
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
@@ -167,4 +171,8 @@ _id필드는 추가된 doicument의 정보입니다.
 더 많은 정보는  [db.collection.update()](http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update) 정보 페이지의 [Update examples](http://docs.mongodb.org/manual/reference/method/db.collection.update/#update-method-examples)을 확인 하시면 됩니다.
 
 [db.collection.findAndModify()](http://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/#db.collection.findAndModify) 와 [db.collection.save()](http://docs.mongodb.org/manual/reference/method/db.collection.save/#db.collection.save) 메서드도 존재하는 document에 대해서는 수정을 그렇지 않은 경우에는 새로운것을 생성합니다. 각각의 정보 페이지에서 더 많은 정보를 확인하세요.
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)
 

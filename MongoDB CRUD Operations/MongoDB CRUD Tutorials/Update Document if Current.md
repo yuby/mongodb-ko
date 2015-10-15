@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Update Document if Current
 
 ##Overview
@@ -54,3 +58,7 @@ if ( myDocument ) {
 다른 방법은 version 필드를 documents에 추가하는 것입니다. 어플리케이션은 각각의 업데이트 작업이 발생할때 마다 필드의 값을 증가 시킵니다. 데이터베이스에 연결하는 모든 클라이언트가 쿼리의  조건에 version 필드를 포함됨을 보장 할 수 있어야합니다. collection의 documents가 증가함에 따라 우리는  [Create an Auto-Incrementing Sequence Field](http://docs.mongodb.org/manual/tutorial/create-an-auto-incrementing-field/) 의 메서드중에 하나를 사용할수가 있습니다.
 
 더 많은 정보는 [Concurrency Control](http://docs.mongodb.org/manual/core/write-operations-atomicity/#concurrency-control)에서 확인하세요.
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)

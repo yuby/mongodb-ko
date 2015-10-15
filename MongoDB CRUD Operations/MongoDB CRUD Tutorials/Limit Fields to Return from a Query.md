@@ -1,3 +1,7 @@
+[목록](https://github.com/yuby/mongodb-ko)
+
+
+
 #Limit Fields to Return from a Query
 
 [projection](http://docs.mongodb.org/manual/reference/glossary/#term-projection) document 는 쿼리와 일치하는 document가 전달하는 필드를 제한합니다. projection document 는 필드의 추가와 제거를 설정하는 것이 가능합니다.
@@ -10,8 +14,8 @@ The specifications have the following forms:
 | <field>: <1 or true>  | Specify the inclusion of a field.     |
 | <field>: <0 or false> | Specify the suppression of the field. |
 
-    
-   
+
+
 >IMPORTANT
 _id 필드는 기본적으로 결과값에 고정되어 있습니다. _id 필드를 제거하고 싶다면 _id : 0 으로  projection document에 설정하면 됩니다.
 
@@ -38,12 +42,12 @@ db.inventory.find( { type: 'food' }, { item: 1, qty: 1 } )
 
 ##Return Specified Fields Only
 
-_id플드의 정보를 결과값에서 제할수 있습니다. 
+_id플드의 정보를 결과값에서 제할수 있습니다.
 
 ```
 db.inventory.find( { type: 'food' }, { item: 1, qty: 1, _id:0 } )
 ```
-결과로 오직 item, qty필드의 정보만을 받습니다. 
+결과로 오직 item, qty필드의 정보만을 받습니다.
 
 
 ##Return All But the Excluded Field
@@ -177,3 +181,7 @@ db.inventory.find( { _id: 5 }, { ratings: { $slice: 2 } } )
 
 SEE ALSO
 [Query Documents](http://docs.mongodb.org/manual/tutorial/query-documents/)
+
+
+
+[목록](https://github.com/yuby/mongodb-ko)
