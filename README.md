@@ -10,3 +10,6 @@
 
 
 - [Introduction to MongoDB](./Introduction/README.md)
+- [Databases and Collections](./Introduction/databases-and-collections.md)
+	- [Capped Collections](./Introduction/capped-collections.md)
+- [Documents](./Introduction/documents.md)

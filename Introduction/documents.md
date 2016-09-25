@@ -163,6 +163,7 @@ update 메서드를 사용한 특정 document를 수정시에 특정 필드값�
 ```
 
 예를들면
+
 ```
   {
      $set: { "favorites.food": "pie", type: 3 },
@@ -174,7 +175,9 @@ update 메서드를 사용한 특정 document를 수정시에 특정 필드값�
 ###Index Specification Documents
 document에 정의된 인덱스 필드와 타입
 
+
 ```
+
 { <field1>: <type1>, <field2>: <type2>, ...  }
 ```
 
