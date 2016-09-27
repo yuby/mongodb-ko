@@ -4,10 +4,17 @@
 
 ## Index
 
-### 1. Introduction
-
-
-- [Introduction to MongoDB](./Introduction/README.md)
+### 1. [Introduction](./Introduction/README.md)
 - [Databases and Collections](./Introduction/databases-and-collections.md)
 	- [Capped Collections](./Introduction/capped-collections.md)
 - [Documents](./Introduction/documents.md)
+- [BSON Types](./Introduction/bson-types.md)
+- [MongoDB Extended JSON](./Introduction/mongodb-extended-json.md)
+
+### 2. [Installation](https://docs.mongodb.com/manual/installation/)
+
+### 3. [The mongo shell](./the-mongo-shell/README.md)
+- [Configure the mongo Shell](./the-mongo-shell/configure-mongo-shell.md)
+- [Access the mongo Shell Help](./the-mongo-shell/access-mongo-shell-help.md)
+- [Write Scripts for the mongo Shell](./the-mongo-shell/write-scripts-for-the-mongo-shell.md)
+
