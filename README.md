@@ -17,4 +17,6 @@
 - [Configure the mongo Shell](./the-mongo-shell/configure-mongo-shell.md)
 - [Access the mongo Shell Help](./the-mongo-shell/access-mongo-shell-help.md)
 - [Write Scripts for the mongo Shell](./the-mongo-shell/write-scripts-for-the-mongo-shell.md)
+- [Data Types in the mongo Shell](./the-mongo-shell/shell-types.md)
+- [mongo Shell Quick Reference](./the-mongo-shell/mongo-shell.md)
 
