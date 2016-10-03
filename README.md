@@ -25,5 +25,5 @@
 - [Query Document](./crud/query-documents/README.md)
 	- [Project Fields to Return from Query](./crud/query-documents/project-fields-from-query-results.md)
 	- [Query for Null or Missing Fields](./crud/query-documents/query-for-null-fields.md)
-	- [Iterate a Cursor in the mongo Shell](./crud/query-documents/tutorial/iterate-a-cursor.md)
+	- [Iterate a Cursor in the mongo Shell](./crud/query-documents/iterate-a-cursor.md)
 - [Update Documents](./crud/update-documents.md)
