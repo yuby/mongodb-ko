@@ -33,16 +33,21 @@ db.users.find( { name: null } )
 { "_id" : ObjectId("523b6e6ffb408eea0eec2649"), "userid" : "nina", "score" : 90 }
 ```
 의 데이터에 대해서 score에 sparse index가 지정된경우 
+
 ```
 db.scores.find( { score: { $lt: 90 } } )
 ```
+
 위의 코드는 다음의 결과를 리턴합니다.
+
 ```
-{ "_id" : ObjectId("523b6e61fb408eea0eec2648"), "userid" : "abby", "score" : 82 }
+{ 
+	"_id" : ObjectId("523b6e61fb408eea0eec2648"), 	"userid" : "abby", "score" : 82 }
 ```
 
 ##Type Check
 { name : { $type: 10 } } 쿼리는 name 필드의 값이 null document만을 리턴합니다.
+
 ```
 db.users.find( { name : { $type: 10 } } )
 ```
@@ -54,10 +59,12 @@ db.users.find( { name : { $type: 10 } } )
 
 ##Existence Check
 { name : { $exists: false } } 쿼리는 name 필드가 존재하지 않는 document에 대해서만 리턴을 합니다.
+
 ```
 db.users.find( { name : { $exists: false } } )
 ```
 결과는 다음과 같습니다.
+
 ```
 { "_id" : 901 }
 ```

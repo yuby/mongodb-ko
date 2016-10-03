@@ -8,6 +8,7 @@ db.collection.find() 메서드는 결과로 cursor를 리턴합니다. cursor의
 var 키워드를 사용해서 find() 메서드를 통해서 리턴된 결과를 확인하면 자동으로 cursor를 반복해 내부의 document를 보여주지 않습니다.
 
 다음은 일치된 결과의 20개를 화면에 보이게 하는 코드입니다.
+
 ```
 var myCursor = db.users.find( { type: 2 } );
 
@@ -102,10 +103,12 @@ db.serverStatus() 메서드는 metrics 필드가 포함된 document를 리턴합
 - 전체 열려있는 cursor
 
 다음의 db.serverStatus() 메서드를 사용해 metrics.cursor 필드에 접근하는 코드입니다.
+
 ```
 db.serverStatus().metrics.cursor
 ```
 결과는 다음과 같습니다.
+
 ```
 {
    "timedOut" : <number>

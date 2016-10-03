@@ -8,7 +8,9 @@ projection은 전달되는 필드에 제한을 주는 것입니다. projection �
 ```
 { field1: <value>, field2: <value> ... }
 ```
+
 <value> 의 값은 다음과 같습니다.
+
 - 1 이나 true 는 포함된 필드를 의미합니다.
 - 0 이나 false는 제거된 필드를 의미합니다.
 - [Projection Operation](https://docs.mongodb.com/manual/reference/operator/projection/)
@@ -160,10 +162,15 @@ db.users.find( { status: "A" } )
 projection에 몇몇 필드의 정보를 추가하겠습니다.
 
 ```
-db.users.find( { status: "A" }, { name: 1, status: 1 } )
+db.users.find( 
+	{ status: "A" }, 
+	{ name: 1, status: 1 } 
+)
+
 ```
 
 결과는 다음과 같습니다.
+
 ```
 { "_id" : 2, "name" : "bob", "status" : "A" }
 { "_id" : 3, "name" : "ahn", "status" : "A" }
@@ -174,7 +181,10 @@ db.users.find( { status: "A" }, { name: 1, status: 1 } )
 결과에서 _id  필드를 제거하겠습니다.
 
 ```
-db.users.find( { status: "A" }, { name: 1, status: 1, _id: 0 } )
+db.users.find( 
+	{ status: "A" }, 
+	{ name: 1, status: 1, _id: 0 } 
+)
 ```
 
 결과는 다음과 같습니다.
@@ -186,10 +196,15 @@ db.users.find( { status: "A" }, { name: 1, status: 1, _id: 0 } )
 
 ##Return All But the Excluded Field
 특정필드를 제거하기 위해 필요한 필드를 모두 적는것보다는 제하고 싶은 필드를 설장할 수 있습니다.
+
 ```
-db.users.find( { status: "A" }, { favorites: 0, points: 0 } )
+db.users.find( 
+	{ status: "A" }, 
+	{ favorites: 0, points: 0 } 
+)
 ```
 결과는 다음과 같습니다.
+
 ```
 {
    "_id" : 2,
@@ -234,6 +249,7 @@ db.users.find(
 )
 ```
 결과는 다음과 같습니다.
+
 ```
 { "_id" : 2, "name" : "bob", "status" : "A", "favorites" : { "food" : "meringue" } }
 { "_id" : 3, "name" : "ahn", "status" : "A", "favorites" : { "food" : "cake" } }
@@ -250,6 +266,7 @@ db.users.find(
 )
 ```
 결과는 다음과 같습니다.
+
 ```
 {
    "_id" : 2,
@@ -292,9 +309,13 @@ array의 내부 document의 필드 또한 (.)dot notation을 사용해서 지정
 points array의 bonus 필드만 전달되도록 하는 코드입니다.
 
 ```
-db.users.find( { status: "A" }, { name: 1, status: 1, "points.bonus": 1 } )
+db.users.find( 
+	{ status: "A" }, 
+	{ name: 1, status: 1, "points.bonus": 1 } 
+)
 ```
 결과는 다음과 같습니다.
+
 ```
 { "_id" : 2, "name" : "bob", "status" : "A", "points" : [ { "bonus" : 20 }, { "bonus" : 12 } ] }
 { "_id" : 3, "name" : "ahn", "status" : "A", "points" : [ { "bonus" : 8 }, { "bonus" : 20 } ] }
@@ -307,8 +328,12 @@ db.users.find( { status: "A" }, { name: 1, status: 1, "points.bonus": 1 } )
 몽고디비는 array의 projection 연산자인  $elemMatch, $slice, $ 를 제공합니다.
 
 다음의 예제는 $slice를 사용해서 points array의 마지막 엘리먼트를 제거한 결과를 리턴받는 코드입니다.
+
 ```
-db.users.find( { status: "A" }, { name: 1, status: 1, points: { $slice: -1 } } )
+db.users.find( 
+	{ status: "A" }, 
+	{ name: 1, status: 1, points: { $slice: -1 } } 
+)
 ```
 결과는 다음과 같습니다.
 

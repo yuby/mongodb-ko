@@ -26,6 +26,7 @@
 db.collection.insertOne() 는 하나의 document를 collection에 저장하는 메서드입니다.
 
 다음의 예제는 새로운 유저정보를 users collection에 저장을 하면서 _id 필드를 지정하지 않는 경우입니다. 이경우 자동으로 몽고디비가 ObjectId를 가진 _id 필드를 추가하게 됩니다.
+
 ```
 db.users.insertOne(
    {
@@ -44,13 +45,19 @@ db.users.insertOne(
 }
 ```
 저장된 document를 _id 필드를 가지고 읽어오는 쿼리입니다.
+
 ```
-db.users.find( { _id: ObjectId("5742045ecacf0ba0c3fa82b0") } )
+db.users.find( 
+	{ 
+		_id: ObjectId("5742045ecacf0ba0c3fa82b0") 
+	}
+ )
 ```
 
 ##db.collection.insertMany()
 db.collection.insertMany() 메서드는 다중의 document를 collection에 저장하는 메서드입니다.
 다음의 예제는 users collection에 3명의 사용자 정보를 추가하는 경우입니다. 이경우에도 _id 필드를 지정하지 않는 경우입니다. 이경우 자동으로 몽고디비가 ObjectId를 가진 _id 필드를 추가하게 됩니다.
+
 ```
 db.users.insertMany(
    [
@@ -88,6 +95,7 @@ db.users.find(
 
 ##db.collection.insert()
 db.collection.insert() 는 collection에 document를 하나 또는 여러개를 저장할수 있습니다. 하나를 저장하는 경우 해당 document를 인자로 전달하고 여러개를 저장하는 경우 배열에 담아 인자로 전달하면 됩니다.
+
 ```
 db.users.insert(
    {
@@ -97,6 +105,7 @@ db.users.insert(
    }
 )
 ```
+
 이경우에는 동작의 결과로  WriteResult 객체를 리턴합니다. 성공적으로 동작이 수행된경우 다음의 결과를 확인할수 있습니다.
 
 ```
@@ -115,6 +124,7 @@ db.users.insert(
 )
 ```
 디수의 document를 저장하는 경우에는 BulkWriteResult 객체를 전달합니다. BulkWriteResult  객체는 다음과 같습니다.
+
 ```
 BulkWriteResult({
    "writeErrors" : [ ],

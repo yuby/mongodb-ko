@@ -4,13 +4,14 @@
 다음은 몽고디비가 제공하는 document를 수정하는 메서드입니다.
 
 |Method| Description|
-|-|-|
+| ------------- |-------------|
 |db.collection.updateOne() | 가장 일치하는 하나의 document를 수정합니다. |
 |db.collection.updateMany() | 모든 일치하는 document를 수정합니다. |
 |db.collection.replaceOne() | 가장 일치하는 하나의 documet를 새로운 document로 대체합니다. |
 |db.collection.update() | 수정하거나 대체하는 적업을 합니다. 기본적으로 하나의 document를 대상으로 동작을 하지만 multi 옵션 값을 사용한다면 다수의 document를 수정할수 있습니다. |
 
 이 메서드들은 파라메터를 받아들입니다.
+
 - 수정 대상의 조건을 지정합니다. 보통 읽기작업에 사용하는 표현과 동일합니다.
 	- 필터쿼리는 <field>:<value>  형태로 특정 field의 value와 일치하는 대상을 찾습니다. { <field1>: <value1>, ... }
 - 쿼리 연산자를 사용해 특정 조건을 부여할 수 있습니다. { <field1>: { <operator1>: <value1> }, ... }
@@ -192,6 +193,7 @@ db.users.update(
 ```
 
 db.collection.update() 메서드에 multi: true 옵션을 사용해서 다수의 document를 수정할 수 있습니다.
+
 ```
 db.users.update(
    { "favorites.artist": "Pisanello" },

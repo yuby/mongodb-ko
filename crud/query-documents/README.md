@@ -2,9 +2,11 @@
 
 ##Query Method
 db.collection.find() 메서드는 해당 collection에서 일치하는 document 정보를 cursor로 전달을 합니다.
+
 ```
 db.collection.find( <query filter>, <projection> )
 ```
+
 db.collection.find() 메서드에 특정한 필드 옵션을 추가 할수 있습니다.
 
 - query filter 를 통한 조건 추가
@@ -111,10 +113,12 @@ db.users.insertMany(
 
 ##Select All Documents in a Collection
 빈 query filter 는 collection의 모든 document를 리턴하게 됩니다.
+
 ```
 db.users.find( {} )
 ```
 query filter를 작성하지 않고 db.users.find() 로만 작성을 해도 db.users.find( {} )와 동일합니다.
+
 ```
 db.users.find()
 ```
@@ -128,16 +132,19 @@ query filter document의 경우  <field>:<value> 의 방식으로 조건을 설�
 ```
 
 다음의 예제는 status가 'A'인 사람의 정보를 확인하는 코드입니다.
+
 ```
 db.users.find( { status: "A" } )
 ```
 
 ###Specify Conditions Using Query Operators
 query filter에 query 연산자를 사용할수 있습니다.
+
 ```
 { <field1>: { <operator1>: <value1> }, ... }
 ```
 다음은 status가 'P' , 'D'를 가지는 경우를 찾는 코드입니다.
+
 ```
 db.users.find( { status: { $in: [ "P", "D" ] } } )
 ```
@@ -165,6 +172,7 @@ db.users.find(
 조금더 정교한 조건을 설장하는 것이 가능합니다.
 
 다음의 예는 status는 'A'이고 age가 30이하이거나 type이 1인 경우를 찾는 코드입니다.
+
 ```
 db.users.find(
    {
@@ -183,7 +191,12 @@ db.users.find(
 다음의 예제는 favorites 필드가 가지는 내부 document를 비교하는 쿼리입니다.
 
 ```
-db.users.find( { favorites: { artist: "Picasso", food: "pizza" } } )
+db.users.find( 
+	{ favorites: { 
+		artist: "Picasso", food: "pizza" 
+		} 
+	} 
+)
 ```
 
 ###Equality Match on Fields within an Embedded Document
@@ -205,11 +218,13 @@ db.users.find( { "favorites.artist": "Picasso" } )
 
 ##Exact Match on an Array
 document { <field>: <value> } 의 value가 array를 가지는 경우 동일한 array를 가지는 document를 추출할수 있습니다.
+
 ```
 db.users.find( { badges: [ "blue", "black" ] } )
 ```
 
 위의 쿼리와 일치하는 document의 형태입니다.
+
 ```
 {
    "_id" : 1,
@@ -226,6 +241,7 @@ db.users.find( { badges: [ "blue", "black" ] } )
 
 ###Match an Array Element
 array의 특정 엘리먼트와 일치하는 경우, 해당 array에 하나만 일치하는 값이 있어도 해당 document를 추출할수 있습니다.
+
 ```
 {
    "_id" : 1,
@@ -264,6 +280,7 @@ array의 특정 엘리먼트와 일치하는 경우, 해당 array에 하나만 �
 
 ###Match a Specific Element of an Array
 (.)dot notation을 사용하면 array의 엘리먼트를 특정 index나 위치값을 가지고 해당 document를 추출하는 것이 가능합니다.
+
 ```
 db.users.find( { "badges.0": "black" } )
 ```
@@ -291,7 +308,9 @@ db.users.find( { "badges.0": "black" } )
 $elemMatch를 사용하면 array의 엘리먼트가 하나의 조건만 만족하더라도 해당 document를 추출할수 있습니다.
 
 ```
-db.users.find( { finished: { $elemMatch: { $gt: 15, $lt: 20 } } } )
+db.users.find( { 
+	finished: { $elemMatch: { $gt: 15, $lt: 20 } } 
+} )
 ```
 
 다음의 둘중 하나의 조건에 일치하는 array를 가진 document의 형태입니다.
@@ -374,6 +393,7 @@ db.users.find( { finished: { $gt: 15, $lt: 20 } } )
 만약에 array의 특정인덱스가 document를 가지고 있다는 사실을 알고 있다면 dot notation(.)을 통해 접근할수 있습니다.
 
 다음은 points가 array형태의 데이터를 가지고 0번 인덱스에 document가 있고 그 document의 points필드에 접근해 조건을 설정하는 코드입니다.
+
 ```
 db.users.find( { 'points.0.points': { $lte: 55 } } )
 ```
@@ -439,7 +459,11 @@ $elemMatch 연산자를 사용한다면 array내부의 document을 다중의 조
 다음은 points array의 document중 points가 70과 같거나 작고, bouns가 20인 경우를 찾는 코드입니다.
 
 ```
-db.users.find( { points: { $elemMatch: { points: { $lte: 70 }, bonus: 20 } } } )
+db.users.find( { 
+	points: { 
+		$elemMatch: { points: { $lte: 70 }, bonus: 20 } 
+		} 
+	} )
 ```
 결과는 다음과 같습니다.
 
@@ -459,8 +483,11 @@ db.users.find( { points: { $elemMatch: { points: { $lte: 70 }, bonus: 20 } } } )
 
 ###Combination of Elements Satisfies the Criteria
 다음의 예는 points array의 document 엘리먼트가 여러 조건의 조합에 만족하도록하는 예제입니다. 예를들면 points가 70보다 작거나 같고 다른 엘리먼트인 bonus가 20인 경우이거나, 하나의 엘리먼트가 두개의 조건 모두에 만족하는 경우입니다.
+
 ```
-db.users.find( { "points.points": { $lte: 70 }, "points.bonus": 20 } )
+db.users.find( 
+	{ "points.points": { $lte: 70 }, "points.bonus": 20 
+} )
 ```
 결과로 다음과 같습니다.
 
