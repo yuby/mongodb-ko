@@ -8,7 +8,7 @@ mongo shell은 몇가지 옵션과 함께 시작할수 있습니다. [이곳](ht
 다음은 가장 보편적으로 사용하는 옵션들입니다.
 
 |Option | Description |
-|-|-|
+|---------|-----------|
 | --help|	커맨드라인 옵션을 보여줍니다. |
 | --nodb |데이터 베이스 연결이 없이 mongo shell을 시작합니다.<br/> 추후에 DB에 새로운 연결을 확인할수 있습니다.|
 |--shell | javaScript 파일(i.e. <file.js>)과 함께 mongo shell을 사용합니다. |
@@ -17,7 +17,7 @@ mongo shell은 몇가지 옵션과 함께 시작할수 있습니다. [이곳](ht
 mongo shell은 다양한 help를 제공합니다. 다음은 가장 보편적으로 사용하는 help 메서드입니다.
 
 |Help Methods and Commands | Description |
-|-|-|
+|---------|-----------|
 |help | help를 보여줍니다.|
 |db.help() | db의 help메서드를 보여줍니다.|
 |db.<collection>.help() | collection 의 help 메서드를 보여줍니다.|
@@ -51,7 +51,7 @@ mongo shell의 경우 javascript api를 데이터베이스 명령으로 제공�
 다양한 키보드 단축키를 제공합니다.
 
 |Keystroke|	Function|
-|-|-|
+|---------|-----------|
 |Up-arrow|	previous-history|
 |Down-arrow|	next-history|
 |Home|	beginning-of-line|
@@ -102,8 +102,8 @@ find() 메서드의 경우네느 cursor 객체에 docuemnt를 담아 리턴합�
 
 다음은 읽기 작업에 사용되는 명령어들입니다.
 
-|Read Operations|Description|
-|-|-|
+|Method|Description|
+|---------|-----------|
 |db.collection.find(<query>)| <query> 에 특정 조건을 담아 실행합니다. <query>가 정의 되지 안흔 경우에는 collection의 전체 document를 전달합니다.|
 |db.collection.find(<query>, <projection>)| <query>으로 특정 조건의 데이터를 불러와 <projection> 정의한 필드의 데이터만 출력합니다.|
 |db.collection.find().sort(<sort order>)|검색된 결과를 필드에 1(오름차순) , -1(내림차순)을 정의하면 해당 필드기준으로 정렬됩니다.|
@@ -118,5 +118,31 @@ find() 메서드의 경우네느 cursor 객체에 docuemnt를 담아 리턴합�
 더 많은 쿼리의 정보는 [이곳](https://docs.mongodb.com/manual/tutorial/query-documents/)에서 확인 하시면 됩니다.
 
 ##Error Checking Methods
+이전에 Write concern의 경우에는 db.getLastError() 메서드들 통해서 확인이 가능했지만 지금은 쓰기작업의 메서드 상에 write concern을 함께 작성해서 실행할수가 잇습니다. 예를들어 현재는 WriteResult()메서드상에 작업의 결과 (작업상의 오류 나 write concern의 오류 정보) 를 담아 리턴합니다.
 
+이전버전의 경우에는 db.getLastError() 와 db.getLastErrorObj() 메서드를 사용해서 해당 결과를 확인 했습니다.
 
+##Administrative Command Helpers
+다음은 데이터베이스 관리를 위한 메서드입니다.
+
+|JavaScript Database Administration Methods|Description|
+|---------|-----------|
+|db.cloneDatabase(<host>)	| 현제의 데이터 베이스를 특정 host로 부터 복제합니다. 이경우 반드시 noauth mode 여야합니다.|
+|db.copyDatabase(<from>, <to>, <host>)	| host상의 데이터 베이스 (<from> database) 부터 현재의 서버의 특정 데이터 베이스(<to> database) 로 데이터 베이스를 복제합니다. host 데이터 베이스의 경우 noauth mode입니다. |
+|db.fromColl.renameCollection(<toColl>)	| 이전 collection의 이름을 다른 collection의 이름 toColl으로 변경합니다.|
+|db.repairDatabase()|현재 데이터 베이스를 수리하고 압축하는 역활을 합니다. 이 동작의 경우 데이터베이스가 클 경우에는 매우 느립니다.|
+|db.getCollectionNames()	| 현재 데이터베이스의 모든 collection의 정보를 리턴합니다.|
+|db.dropDatabase()	| 현제 데이터베이스 정보를 삭제합니다. |
+
+##Opening Additional Connections
+mongo shell상에서 새로운 데이터 베이스 연결을 생성할수 있습니다.
+
+|JavaScript Database Administration Methods|Description|
+|---------|-----------|
+|db = connect("<host><:port>/<dbname>") |새로운 데이터베이스 연결을 생성합니다.|
+|conn = new Mongo()  db = conn.getDB("dbname") | new Mongo()를 사용해 새로운 연결을 생성합니다. getDB()메서드를 사용해 해당 데이터베이스의  연결 정보를 가져옵니다.|
+
+##Miscellaneous
+|Methods|Description|
+|---------|-----------|
+|Object.bsonsize(<document>)	| <document>의 BSON사이즈를 바이트 정보를 리턴합니다.|

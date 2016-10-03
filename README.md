@@ -27,3 +27,5 @@
 	- [Query for Null or Missing Fields](./crud/query-documents/query-for-null-fields.md)
 	- [Iterate a Cursor in the mongo Shell](./crud/query-documents/iterate-a-cursor.md)
 - [Update Documents](./crud/update-documents.md)
+- [Delete Documents](./crud/remove-documents.md)
+- [Bulk Write Operations](./crud/bulk-write-operations.md)

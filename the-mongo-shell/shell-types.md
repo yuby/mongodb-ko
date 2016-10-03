@@ -5,6 +5,7 @@
 
 ###Date
 mongo shell은 문자열이나 날짜객체같은 형태의 날짜정보를 리턴하는 메서드를 제공합니다.
+
 - Date()  메서드는 현재의 날짜 정보를 문자열로 전달합니다.
 - new Date() 생성자는 Date 객체를 ISODate() 객체로 쌓여 전달이 됩니다.
 - ISODate() 생성자는 Date 객체를 ISODate() 객체로 쌓여 전달이 됩니다.
@@ -14,19 +15,25 @@ mongo shell은 문자열이나 날짜객체같은 형태의 날짜정보를 리�
 
 ###Return Date as a String
 Date() 메서드를 사용해서 날짜 정보를 확인하는 방법입니다.
+
 ```
 var myDateString = Date();
 ```
+
 날짜 정보를 확인하고 싶으면 변수이름을 shell에 작성하면됩니다.
+
 ```
 myDateString
 ```
 
 결과값은 다음과 같습니다.
+
 ```
 Wed Dec 19 2012 01:03:25 GMT-0500 (EST)
 ```
+
 typeof 메서드를 사용하면 타입정보를 확인합니다.
+
 ```
 typeof myDateString
 ```
@@ -36,19 +43,24 @@ string 이라는 결과를 리턴합니다.
 ###return Date
 mongo shell에서의 Date객체는 ISODate 에 쌓여있지만 여전히 Date타입입니다.
 다음의 예제는 new Date() 생성자와 ISODate() 생성자를 사용해 Date 객체를 전달하는 예제입니다.
+
 ```
 var myDate = new Date();
 var myDateInitUsingISODateWrapper = ISODate();
 ```
 ISODate()의 경우에는 new 를 사용해도 되고 그냥 쓰지 않아도 됩니다. myDate 변수를 shell에 입력을하면 ISODate() 로 감싸여 다음과 같은 결과를 리턴합니다.
+
 ```
 ISODate("2012-12-19T06:01:17.171Z")
 ```
+
 instanceof 연산자를 사용해 타입확인이 가능합니다.
+
 ```
 myDate instanceof Date
 myDateInitUsingISODateWrapper instanceof Date
 ```
+
 모두 true의 결과를 리턴합니다.
 
 ###ObjectId
@@ -76,10 +88,12 @@ db.collection.update( { _id: 10 },
                       { $inc: { calc: NumberLong(5) } } )
 ```
 해당 정보를 가져옵니다.
+
 ```
 db.collection.findOne( { _id: 10 } )
 ```
 결과는 calc 필드에 NumberLong 형태로 값이 들어있습니다.
+
 ```
 { "_id" : 10, "calc" : NumberLong("2555555000005") }
 ```

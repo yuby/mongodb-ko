@@ -6,6 +6,7 @@ mongo shell 에서 prompt 변수를 사용하면 prompt 의 내용을 수정할 
 
 ###Customize Prompt to Display Number of Operations
 예를들어 여러 작업을 현재의 세션에서 한번에 진행 하고 싶은 경우 다음과 같은 방법이 있습니다.
+
 ```
 cmdCount = 1;
 prompt = function() {
@@ -13,6 +14,7 @@ prompt = function() {
          }
 ```
 결과는 다음과 같습니다.
+
 ```
 1>
 2>
@@ -35,12 +37,14 @@ test@myHost1$
 
 ###Customize Prompt to Display Up Time and Document Count
 mongo shell에 시스템의 up time 과 document의 갯수를 표시하는 방법은 다음과 같습니다.
+
 ```
 prompt = function() {
            return "Uptime:"+db.serverStatus().uptime+" Documents:"+db.stats().objects+" > ";
          }
 ```
 결과는 다음과 같습니다.
+
 ```
 Uptime:5897 Documents:6 >
 ```
@@ -65,6 +69,7 @@ edit myFunction
 ```
 
 3. 수정을 하고 mongo shell 상에서 해당 함수를 입력하면 수정된 함수를 확인할 수 있습니다.
+
 ```
 myFunction
 ```

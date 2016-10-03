@@ -12,6 +12,7 @@ JSON은 BSON이 지원하는 subset 타입으로 나타낼 수 있습니다. 타
 
 ###Input in Strict Mode
 다음은 strict mode 에서의 타입정보와 표현식을 파싱할 수 있습니다.
+
 - [REST Interfaces](https://docs.mongodb.com/ecosystem/tools/http-interfaces/)
 - [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/#bin.mongoimport)
 - 다양한 몽도디비 툴의 --query 옵션
@@ -20,6 +21,7 @@ mongo shell과 db.eval()을 포함한 다른 JSON parser는 stric mode에서는 
 
 ###Input in mongo Shell Mode
 다음은 mongo Shell Mode 에서의 타입정보와 표현식을 파싱할 수 있습니다.
+
 - [REST Interfaces](https://docs.mongodb.com/ecosystem/tools/http-interfaces/)
 - [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/#bin.mongoimport)
 - 다양한 몽도디비 툴의 --query 옵션
@@ -50,8 +52,11 @@ mongo shell과 db.eval()을 포함한 다른 JSON parser는 stric mode에서는 
 | { "$date": "<date>" } | new Date ( <date> ) |
 
 strict 모드에서는 <date> 는 ISO-8601의 YYYY-MM-DDTHH:mmLss.mmm<+/-Offset> 형태의 필수 시간 대 필드입니다. 몽고디비 JSON 파서는 현재 로딩된 IOS-8601 로 표현된 이전 Unix epoch에 대해서는 지원하지 않습니다. pre-epoch 와 시스템의 time_t 타입의 과거 시간대를 포맷팅 할 때 다음과 같은 포맷을 사용합니다.
+
 ```
-{ "$date" : { "$numberLong" : "<dateAsMilliseconds>" } }
+{ 
+	"$date" : { "$numberLong" : "<dateAsMilliseconds>" } 
+}
 ```
 
 Shell mode 에서는 <date> 는 64비트의 signed integer로 표현된 epoch UTC 이후부터의 milliseconds 값으로 나타냅니다.
@@ -107,14 +112,18 @@ db.people.insert( { name : "Sally", age : undefined } )
 ```
 
 다음의 쿼리는 에러를 리턴합니다.
+
 ```
 db.people.find( { age : undefined } )
 db.people.find( { age : { $gte : undefined } } )
 ```
+
 하지만 사용을 원하는 경우 $type 을 사용해서 사용할 수가 있습니다.
+
 ```
 db.people.find( { age : { $type : 6 } } )
 ```
+
 이렇게 작성을하면 age가 undefined를 값으로 가진 모든 document를 리턴합니다.
 
 
@@ -149,6 +158,7 @@ db.json.insert( { longUnQuoted : NumberLong(9223372036854775807) } )
 ```
 
 저장된 데이터를 불러오는 경우에 longUnquoted  값이 변경되고 longQuoted의 경우에는 정확도가 계속 유지가 됩니다.
+
 ```
 db.json.find()
 { "_id" : ObjectId("54ee1f2d33335326d70987df"), "longQuoted" : NumberLong("9223372036854775807") }
