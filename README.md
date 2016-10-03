@@ -4,12 +4,12 @@
 
 ## Index
 
-### 1. [Introduction](./Introduction/README.md)
-- [Databases and Collections](./Introduction/databases-and-collections.md)
-	- [Capped Collections](./Introduction/capped-collections.md)
-- [Documents](./Introduction/documents.md)
-- [BSON Types](./Introduction/bson-types.md)
-- [MongoDB Extended JSON](./Introduction/mongodb-extended-json.md)
+### 1. [Introduction](./introduction/README.md)
+- [Databases and Collections](./introduction/databases-and-collections.md)
+	- [Capped Collections](./introduction/capped-collections.md)
+- [Documents](./introduction/documents.md)
+- [BSON Types](./introduction/bson-types.md)
+- [MongoDB Extended JSON](./introduction/mongodb-extended-json.md)
 
 ### 2. [Installation](https://docs.mongodb.com/manual/installation/)
 
@@ -20,3 +20,10 @@
 - [Data Types in the mongo Shell](./the-mongo-shell/shell-types.md)
 - [mongo Shell Quick Reference](./the-mongo-shell/mongo-shell.md)
 
+# 3. [MongoDB CRUD Operation](./crud/README.md)
+- [Insert Document](./crud/insert-documents.md)
+- [Query Document](./crud/query-documents/README.md)
+	- [Project Fields to Return from Query](./crud/query-documents/project-fields-from-query-results.md)
+	- [Query for Null or Missing Fields](./crud/query-documents/query-for-null-fields.md)
+	- [Iterate a Cursor in the mongo Shell](./crud/query-documents/tutorial/iterate-a-cursor)
+- [Update Documents](./crud/update-documents.md)
