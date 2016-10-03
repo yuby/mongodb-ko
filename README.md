@@ -20,7 +20,7 @@
 - [Data Types in the mongo Shell](./the-mongo-shell/shell-types.md)
 - [mongo Shell Quick Reference](./the-mongo-shell/mongo-shell.md)
 
-# 3. [MongoDB CRUD Operation](./crud/README.md)
+### 4. [MongoDB CRUD Operation](./crud/README.md)
 - [Insert Document](./crud/insert-documents.md)
 - [Query Document](./crud/query-documents/README.md)
 	- [Project Fields to Return from Query](./crud/query-documents/project-fields-from-query-results.md)
