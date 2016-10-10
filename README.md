@@ -34,4 +34,4 @@
 - [Write Concern](./crud/write-concern.md)
 - [MongoDB CRUD Concepts](./crud/core/README.md)
 	- [Atomicity and Transactions](./crud/core/write-operations-atomicity.md)
-	- [Read Isolation, Consistency, and Recenc](./crud/core/read-isolation-consistency-recency.md)
+	- [Read Isolation, Consistency, and Recency](./crud/core/read-isolation-consistency-recency.md)
