@@ -5,7 +5,10 @@
 ##Atomicity, consistency, and distributed operations
 
 - [Atomicity and Transactions](./write-operations-atomicity.md)
-- [Read Isolation, Consistency, and Recency](read-isolation-consistency-recency.md)
+- [Read Isolation, Consistency, and Recency](./read-isolation-consistency-recency.md)
+- [Distributed Queries](./distributed-queries.md)
+- [Distributed Write Operations](./distributed-write-operations.md)
+- [Perform Two Phase Commits](./perform-two-phase-commits.md)
 
 
 ##Query Plan, Performance, and Analysis

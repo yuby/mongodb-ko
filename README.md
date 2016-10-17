@@ -35,3 +35,6 @@
 - [MongoDB CRUD Concepts](./crud/core/README.md)
 	- [Atomicity and Transactions](./crud/core/write-operations-atomicity.md)
 	- [Read Isolation, Consistency, and Recency](./crud/core/read-isolation-consistency-recency.md)
+  - [Distributed Queries](./crud/core/distributed-queries.md)
+  - [Distributed Write Operations](./crud/core/distributed-write-operations.md)
+  - [Perform Two Phase Commits](./crud/core/perform-two-phase-commits.md)
